@@ -5,6 +5,7 @@ type Props = {
   increaseBtn: boolean;
   updateCounter: Function;
   className: string;
+  shouldBeDisabled: boolean;
 }
 
 export const  CounterButton = (props: Props) => {
@@ -15,7 +16,7 @@ export const  CounterButton = (props: Props) => {
   };
 
   return (
-    <button type='button' onClick={handleButtonClick} className={props.className}>
+    <button type='button' onClick={handleButtonClick} className={`${props.className} ${props.shouldBeDisabled ? 'counter__btn--disabled' : ''}`} disabled={props.shouldBeDisabled ? true : false}>
       {props.increaseBtn ? <Plus/> : <Minus/>}
     </button>
   );

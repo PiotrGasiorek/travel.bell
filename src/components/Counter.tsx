@@ -14,14 +14,12 @@ export const  Counter = (props: Props) => {
   const counterId = Math.random().toString();
 
   const handleInputUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    validateNewValue(+e.target.value) && setCount(+e.target.value);      
+    setCount(parseInt(e.target.value));      
   }
 
   const updateCounter = (value: number) => {
-    validateNewValue(count + value) && setCount(count + value);
+    setCount(count + value);
   };
-
-  const validateNewValue = (value: number) => value >= props.minValue && value <= props.maxValue;
 
   return (
     <fieldset className='counter'>
@@ -33,6 +31,7 @@ export const  Counter = (props: Props) => {
         increaseBtn={false} 
         updateCounter={updateCounter}
         className='counter__btn'
+        shouldBeDisabled={count === props.minValue}
       />
       <input 
         className='counter__input'
@@ -46,6 +45,7 @@ export const  Counter = (props: Props) => {
         increaseBtn={true} 
         updateCounter={updateCounter}
         className='counter__btn'  
+        shouldBeDisabled={count === props.maxValue}
       />
     </fieldset>
   );
