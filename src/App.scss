@@ -23,6 +23,7 @@ $black: #545454;
     z-index: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     &:before{
         position: absolute;
@@ -48,6 +49,7 @@ $black: #545454;
   
 .nav{
     height: 70px;
+    max-width: $page-width;
     width: 100%;
     display: flex;
     align-items: center;
@@ -88,7 +90,7 @@ input[type=number] {
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
-    padding: 12px 18px;
+    padding: 18px;
     box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.1);
     width: fit-content;
 
@@ -118,12 +120,22 @@ input[type=number] {
     }
 }
 
-.counter{
+.rating-filter{
+    flex-direction: column;
+    &__label{
+        width: 100%;
+        margin-bottom: 4px;
+    }
+}
+
+.counter,
+.rating-filter{
     border: none;
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0 38px 0 0;
+    height: fit-content;
 
     &__input{
         width: 3ch;
@@ -141,6 +153,7 @@ input[type=number] {
         display: flex;
         flex-direction: column;
         padding-right: 24px;
+        align-self: flex-start;
 
         &__header{
             font-weight: 600;
@@ -155,6 +168,11 @@ input[type=number] {
         color: $black;
         border: none;
         border-radius: 13px;
+
+        &--disabled{
+            opacity: .2;
+            cursor: not-allowed;
+        }
     }
 }
 
