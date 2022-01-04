@@ -1,11 +1,13 @@
-import React from 'react';
 import Counter from './Counter';
+import RatingFilter from './RatingFilter';
 
 function Form() {
   return (
     <form className='form'>
+      <RatingFilter
+      />
       <Counter 
-        minValue={0}
+        minValue={1}
         maxValue={16}     
         defaultValue={1}   
         header='Adults'  
