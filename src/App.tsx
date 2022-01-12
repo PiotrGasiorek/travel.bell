@@ -1,12 +1,17 @@
 import Header from './components/Header';
-import Results from './components/Results';
+import Main from './components/Main';
 import './App.scss';
+import { useEffect } from 'react';
+import { getHotels } from './features/search-slice';
+import { useAppDispatch } from './app/hooks';
 
 function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => dispatch(getHotels()), []);  
   return (
     <div className="App">
       <Header/>
-      <Results/>
+      <Main/>
     </div>
   );
 }
