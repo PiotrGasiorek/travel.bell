@@ -10,7 +10,8 @@ $gray-200: #F8F8F8;
 $gray-300: #E7E7E7;
 $gray-400: #d8d8d8;
 $gray-800: #8C8C8C;
-$black: #545454;
+$gray-900: #6b6b6b;
+$black-500: #3d3d3d;
 
 .header{
     background-size: cover;
@@ -40,6 +41,11 @@ $black: #545454;
         color: #fff;
         font-size: 45px;
         margin: auto;
+        padding: 0 16px 0 16px;  
+    
+        @media screen and (max-width: 700px) {
+            font-size: 35px;
+        }
     }
 }
 
@@ -54,10 +60,6 @@ $black: #545454;
     display: flex;
     align-items: center;
     padding: 0 16px;
-    
-    
-    @media screen and (max-width: 1176px) {
-    }
 }
 
 *{
@@ -83,9 +85,10 @@ input[type=number] {
 }
 
 .form{
+    gap: 12px 32px;
     background-color: #fff;
     margin: 0 auto;
-    transform: translateY(+50%);
+    transform: translateY(-50%);
     align-self: flex-end;
     border-radius: 20px;
     display: flex;
@@ -93,6 +96,10 @@ input[type=number] {
     padding: 18px;
     box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.1);
     width: fit-content;
+
+    @media screen and (max-width: 700px) {
+        transform: translateY(-50px);
+    }
 
     &__btn{
         padding: 16px 24px;
@@ -105,6 +112,7 @@ input[type=number] {
         background-color: $primary-500;
         border: none;
         margin-left: auto;
+        flex-grow: 1;
 
         &:hover{
             background-color: $primary-600;
@@ -128,15 +136,7 @@ input[type=number] {
     }
 }
 
-.counter,
-.rating-filter{
-    border: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0 38px 0 0;
-    height: fit-content;
-
+.counter{
     &__input{
         width: 3ch;
         background-color: $gray-200;
@@ -148,8 +148,27 @@ input[type=number] {
         margin-left: 6px;
         margin-right: 6px;
     }
+}
+
+.rating-filter{
+    &__input{
+        align-self: flex-start;
+    }
+}
+
+.counter,
+.rating-filter{
+    border: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+    flex-grow: 1;
 
     &__label{
+        min-width: min-content;
+        margin-right: auto;
         display: flex;
         flex-direction: column;
         padding-right: 24px;
@@ -165,7 +184,7 @@ input[type=number] {
         width: 40px;
         height: 40px;
         background-color: $gray-300;
-        color: $black;
+        color: $black-500;
         border: none;
         border-radius: 13px;
 
@@ -182,18 +201,132 @@ button{
 
 .main{
     max-width: $page-width;
-    margin: 100px auto 0 auto;
+    margin: auto;
 }
 
 .card{
+    padding: 24px;
     border-radius: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
     box-shadow: 0px 4px 10px 5px rgba(151, 151, 151, 0.1);
 
 
     &__header{
         display: flex;
+        margin-bottom: 32px;
+        width: 100%;
+        flex-wrap: wrap;
     }
+
+    &__details{
+        width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        align-self: baseline;
+
+        &__title{
+            min-width: 100%;
+            color: $black-500;
+            font-size: 30px;
+            margin-bottom: 24px;
+        }
+
+        &__location,
+        &__rating{
+            width: 50%;
+
+            &__title{
+                margin-bottom: 8px;
+                color: $black-500;
+                font-weight: 400;
+            }
+
+            &__address{
+                color: $gray-800;
+                font-size: .9em;
+            }
+        }
+    }
+
+    &__gallery{
+        width: 50%;
+        margin-right: 16px;
+
+        & > *{
+            border-radius: 15px;
+
+        }
+    }
+
+    &__body{
+        &__title{
+            font-size: 20px;
+            color: $gray-900;
+            margin-bottom: 24px;
+        }
+    }
+}
+
+.room{
+    display: flex;
+    border-top: 2px solid $gray-300;
+    padding: 32px 0;
+
+    &:not(:last-of-type){
+        margin-bottom: 64px;
+    }
+
+    &__header{
+        min-width: 300px;
+        margin-right: 16px;
+
+        &__title{
+            color: $black-500;
+            font-size: 25px;
+        }
+
+        &__slots{
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+
+            &__category{
+                color: $gray-900;
+                margin-right: 16px;
+                border: 2px solid $gray-300;
+                border-radius: 5px;
+                padding: 4px 8px;
+            }
+        }
+    }
+
+    &__body{
+        color: $gray-800;
+        font-size: 18px;
+        width: 70ch;
+        min-width: 40ch;
+        flex-shrink: 1;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    margin: unset;
+}
+
+p{
+    line-height: 1.6;
+}
+
+address{
+    font-style: normal;
 }
