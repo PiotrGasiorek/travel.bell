@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchReducer from '../features/search-slice';
+import searchReducer from '../features/search';
 
 export const store = configureStore({
     reducer: {
@@ -7,5 +7,5 @@ export const store = configureStore({
     },
 });
 
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch | any;
 export type RootState = ReturnType<typeof store.getState>;
