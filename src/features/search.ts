@@ -8,10 +8,6 @@ interface SearchState {
         list: Array<any>,
         loaded: boolean,
     };
-    rooms: {
-        list: Array<any>,
-        loaded: boolean,
-    };
     rating: number;
     children: {
         count: number,
@@ -34,10 +30,6 @@ interface SearchState {
 const initialState: SearchState = {
     results: [],
     hotels: {
-        list: [],
-        loaded: false,
-    },
-    rooms: {
         list: [],
         loaded: false,
     },
