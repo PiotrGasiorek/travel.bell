@@ -1,6 +1,7 @@
 import Rating from 'react-rating';
 import { Star } from 'react-feather';
 import RoomsList from './RoomsList';
+import Gallery from './Gallery';
 
 type Props = {
     address1: string
@@ -25,7 +26,7 @@ const Card: React.FC<Props> = (props) => {
       <div className='card__header'>
         <div className='card__gallery'>
           {/* Carusel Component */}
-          <img src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGhvdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+          <Gallery images={images}/>
           {/* {images[0].url && <img src={images[0].url} alt={images[0].alt}/>} */}
         </div>
         <div className='card__details'>
