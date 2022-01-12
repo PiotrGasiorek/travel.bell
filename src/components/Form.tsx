@@ -1,26 +1,27 @@
 import Counter from './Counter';
 import RatingFilter from './RatingFilter';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { setResults } from '../features/search-slice';
 
 function Form() {
+  const dispatch = useAppDispatch();
+  const { children, adults } = useAppSelector(state => state.search);
+
+  const handleOnClick = () => {
+    dispatch(setResults());
+  }
+
   return (
     <form className='form'>
       <RatingFilter
       />
       <Counter 
-        minValue={1}
-        maxValue={16}     
-        defaultValue={1}   
-        header='Adults'  
-        subheader='Add adults'  
+        {...adults}
       />
       <Counter 
-        minValue={0}
-        maxValue={5}     
-        defaultValue={0}   
-        header='Children'  
-        subheader='Ages 16 or above'  
+        {...children}  
       />
-      <button className='form__btn'>Search rooms</button>
+      <button className='form__btn' onClick={handleOnClick} type='button'>Search rooms</button>
     </form>
   );
 }
