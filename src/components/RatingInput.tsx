@@ -1,6 +1,6 @@
 import { Star } from 'react-feather';
 import Rating from 'react-rating';
-import { setRating } from '../features/search-slice';
+import { setRating } from '../features/search';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 function RatingInput() {

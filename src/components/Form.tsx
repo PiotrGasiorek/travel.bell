@@ -1,7 +1,7 @@
 import Counter from './Counter';
 import RatingFilter from './RatingFilter';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { setResults } from '../features/search-slice';
+import { setResults } from '../features/search';
 
 function Form() {
   const dispatch = useAppDispatch();
