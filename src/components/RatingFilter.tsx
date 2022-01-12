@@ -1,8 +1,11 @@
+import { useAppSelector } from "../app/hooks";
 import RatingInput from "./RatingInput";
 
 function RatingFilter() {
+  const { rating } = useAppSelector(state => state.search);
+
   return (
-    <fieldset className='rating-filter'>
+    <fieldset className='rating-filter' title={`Hotels with ${rating} stars and below`}>
       <label className='rating-filter__label' htmlFor="rating">
         <span className="rating-filter__label__header">
           Rating
