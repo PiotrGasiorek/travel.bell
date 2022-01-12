@@ -1,14 +1,16 @@
-import Nav from './Nav';
-import Form from './Form';
+import Card from "./Card";
 
-function Header() {
+type Props = {
+  hotels: Array<any>;
+}
+
+const  CardsList = (props: Props) => {
+  const listOfCards = props.hotels.map(hotel => <Card {...hotel} key={hotel.id}/>);
   return (
-    <header className='header'>
-      <Nav/>
-      <h1 className='header__title'>Find perfect hotel rooms which fits you</h1>
-      <Form/>
-    </header>
+    <>
+      {listOfCards}
+    </>
   );
 }
 
-export default Header;
+export default CardsList;
