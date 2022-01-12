@@ -140,6 +140,7 @@ input[type=number] {
     &__input{
         width: 3ch;
         background-color: $gray-200;
+        color: $black-500;
         border: none;
         border-radius: 10px;
         font-size: 20px;
@@ -173,10 +174,12 @@ input[type=number] {
         flex-direction: column;
         padding-right: 24px;
         align-self: flex-start;
+        color: $gray-800;
 
         &__header{
             font-weight: 600;
             font-size: 1.2em;
+            color: $black-500;
         }
     }
 
@@ -220,6 +223,7 @@ button{
         margin-bottom: 32px;
         width: 100%;
         flex-wrap: wrap;
+        gap: 32px;
     }
 
     &__details{
@@ -227,6 +231,10 @@ button{
         display: flex;
         flex-wrap: wrap;
         align-self: baseline;
+
+        @media screen and (max-width: 750px) {
+            width: 100%;
+        }
 
         &__title{
             min-width: 100%;
@@ -238,6 +246,7 @@ button{
         &__location,
         &__rating{
             width: 50%;
+            font-size: 1.2em;
 
             &__title{
                 margin-bottom: 8px;
@@ -254,7 +263,7 @@ button{
 
     &__gallery{
         width: 50%;
-        margin-right: 16px;
+        flex-grow: 1;
 
         & > *{
             border-radius: 15px;
@@ -263,6 +272,8 @@ button{
     }
 
     &__body{
+        width: 100%;
+
         &__title{
             font-size: 20px;
             color: $gray-900;
@@ -273,16 +284,19 @@ button{
 
 .room{
     display: flex;
+    flex-wrap: wrap;
     border-top: 2px solid $gray-300;
     padding: 32px 0;
+    gap: 16px;
 
     &:not(:last-of-type){
         margin-bottom: 64px;
     }
 
     &__header{
-        min-width: 300px;
-        margin-right: 16px;
+        width: 300px;
+        max-width: 100%;
+        flex-grow: 2;
 
         &__title{
             color: $black-500;
@@ -307,10 +321,75 @@ button{
     &__body{
         color: $gray-800;
         font-size: 18px;
-        width: 70ch;
-        min-width: 40ch;
-        flex-shrink: 1;
+        flex-grow: 1;
+        width: calc(100% - 350px);
+
+        @media screen and (max-width: 750px) {
+            width: 100%;
+        }
     }
+}
+
+.carousel{
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+
+    &__content{
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        transition: transform 0.3s;
+        &__img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            &--active{
+                z-index: 1;
+            }
+        }
+    }
+
+    &__controlers{
+        z-index: 4;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+
+        &__btn{
+            border-radius: 0;
+            border: 0;
+            height: 100%;
+            width: 15%;
+            max-width: 80px;
+            color: #fff;
+            background: #00000018;
+            transition: .3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover{
+                background: #0000003a;
+            }
+
+            svg{
+                width: 50px;
+            }
+        }
+    }
+}
+
+.card__gallery__img{
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
 }
 
 h1,
