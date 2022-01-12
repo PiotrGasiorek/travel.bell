@@ -1,4 +1,4 @@
-import RatingDisplay from "./RatingDisplay";
+import RatingInput from "./RatingInput";
 
 function RatingFilter() {
   return (
@@ -8,7 +8,7 @@ function RatingFilter() {
           Rating
         </span>  
       </label>
-      <RatingDisplay/>
+      <RatingInput/>
     </fieldset>
   );
 }
