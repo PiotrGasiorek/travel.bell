@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CounterButton } from './CounterButton';
+import { useAppDispatch } from '../app/hooks';
+import { 
+  setAdults, 
+  updateAdultsByAmount,
+  setChildren, 
+  updateChildrenByAmount,
+} from '../features/search';
 
 type Props = {
   minValue: number;
   maxValue: number;
-  defaultValue: number;
-  header: String;
-  subheader: String;
+  count: number;
+  header: string;
+  subheader: string;
+  id: string;
 }
 
 export const  Counter = (props: Props) => {
-  const [count, setCount] = useState<number>(props.defaultValue);
-  const counterId = Math.random().toString();
+  const dispatch = useAppDispatch();
+  const isCounterForAdults = props.header === 'Adults';
 
   const handleInputUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCount(parseInt(e.target.value));      
+    isCounterForAdults ? 
+      dispatch(setAdults(+e.target.value)) 
+      : dispatch(setChildren(+e.target.value));    
   }
 
   const updateCounter = (value: number) => {
-    setCount(count + value);
+    isCounterForAdults ? 
+      dispatch(updateAdultsByAmount(value)) 
+      : dispatch(updateChildrenByAmount(value));  
   };
 
   return (
     <fieldset className='counter'>
-      <label className='counter__label' htmlFor={counterId}>
+      <label className='counter__label' htmlFor={props.id}>
         <span className='counter__label__header'>{props.header}</span>
         <span className='counter__label__subheader'>{props.subheader}</span>
       </label>
@@ -31,21 +43,23 @@ export const  Counter = (props: Props) => {
         increaseBtn={false} 
         updateCounter={updateCounter}
         className='counter__btn'
-        shouldBeDisabled={count === props.minValue}
+        shouldBeDisabled={props.count <= props.minValue}
       />
       <input 
         className='counter__input'
-        id={counterId}
+        id={props.id}
         type='number' 
         placeholder='0' 
         onChange={handleInputUpdate}
-        value={count}
+        value={props.count}
+        max={props.maxValue}
+        min={props.minValue}
       />
       <CounterButton 
         increaseBtn={true} 
         updateCounter={updateCounter}
         className='counter__btn'  
-        shouldBeDisabled={count === props.maxValue}
+        shouldBeDisabled={props.count >= props.maxValue}
       />
     </fieldset>
   );
