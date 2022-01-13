@@ -35,7 +35,7 @@ const initialState: SearchState = {
     },
     rating: 4,
     adults: {
-        count: 4,
+        count: 1,
         minValue: 1,
         maxValue: 16,
         header: 'Adults',
