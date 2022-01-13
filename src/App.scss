@@ -52,6 +52,13 @@ $black-500: #3d3d3d;
 .App{
     margin: auto;
 }
+
+.message{
+    text-align: center;
+    font-size: 25px;
+    color: $gray-900;
+    font-weight: 500;
+}
   
 .nav{
     height: 70px;
@@ -60,28 +67,6 @@ $black-500: #3d3d3d;
     display: flex;
     align-items: center;
     padding: 0 16px;
-}
-
-*{
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
-    transition: .3s;
-}
-
-label{
-    cursor: pointer;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 .form{
@@ -198,10 +183,6 @@ input[type=number] {
     }
 }
 
-button{
-    cursor: pointer;
-}
-
 .main{
     max-width: $page-width;
     margin: auto;
@@ -278,6 +259,13 @@ button{
             font-size: 20px;
             color: $gray-900;
             margin-bottom: 24px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+
+            &__icon{
+                margin-right: 8px;
+            }
         }
     }
 }
@@ -392,6 +380,24 @@ button{
     height: 400px;
 }
 
+
+label,
+button{
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 h1,
 h2,
 h3,
@@ -408,4 +414,10 @@ p{
 
 address{
     font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    transition: .3s;
 }
