@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { getHotels } from './features/search';
 import { useAppDispatch } from './app/hooks';
 
-function App() {
+const App:React.FC = () => {
   const dispatch = useAppDispatch();
   useEffect(() => dispatch(getHotels()), []);  
   return (

@@ -1,6 +1,6 @@
 import Logo from './Logo';
 
-function Nav() {
+const Nav:React.FC = () => {
   return (
     <nav className='nav'>
       <Logo className='nav__logo'/>

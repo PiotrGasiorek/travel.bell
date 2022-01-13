@@ -4,7 +4,7 @@ type Props = {
   hotels: Array<any>;
 }
 
-const  CardsList = (props: Props) => {
+const CardsList: React.FC<Props> = (props) => {
   const listOfCards = props.hotels.map(hotel => <Card {...hotel} key={hotel.id}/>);
   return (
     <>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CounterButton } from './CounterButton';
+import CounterButton from './CounterButton';
 import { useAppDispatch } from '../app/hooks';
 import { 
   setAdults, 
@@ -17,7 +17,7 @@ type Props = {
   id: string;
 }
 
-export const  Counter = (props: Props) => {
+const Counter: React.FC<Props> = (props) => {
   const dispatch = useAppDispatch();
   const isCounterForAdults = props.header === 'Adults';
 

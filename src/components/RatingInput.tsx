@@ -3,7 +3,7 @@ import Rating from 'react-rating';
 import { setRating } from '../features/search';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 
-function RatingInput() {
+const RatingInput:React.FC = () => {
   const dispatch = useAppDispatch();
   const initialRating = useAppSelector(state => state.search.rating);
   const handleRatingUpdate = (value: number) => {

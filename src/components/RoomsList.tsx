@@ -6,7 +6,7 @@ type Props = {
   rooms: Array<any>;
 }
 
-const  RoomsList = (props: Props) => {
+const RoomsList: React.FC<Props> = (props) => {
   const { adults, children } = useAppSelector(state => state.search);
   const filteredRooms = props.rooms
     .filter(room => room.occupancy.maxAdults >= adults.count)

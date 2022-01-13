@@ -3,7 +3,7 @@ import RatingFilter from './RatingFilter';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setResults } from '../features/search';
 
-function Form() {
+const Form:React.FC = () => {
   const dispatch = useAppDispatch();
   const { children, adults } = useAppSelector(state => state.search);
 

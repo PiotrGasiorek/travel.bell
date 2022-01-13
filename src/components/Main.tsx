@@ -3,7 +3,7 @@ import Message from './Message';
 import Form from './Form';
 import { useAppSelector } from '../app/hooks';
 
-function Main() {
+const Main:React.FC = () => {
   const { results, rating } = useAppSelector(state => state.search);
   const filteredHotels = results.filter(hotel => hotel.starRating <= rating);  
   const isDataFromApiAvailable = results.length !== 0;

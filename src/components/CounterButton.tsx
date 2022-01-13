@@ -8,7 +8,7 @@ type Props = {
   shouldBeDisabled: boolean;
 }
 
-export const  CounterButton = (props: Props) => {
+const CounterButton = (props: Props) => {
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const passedValue = props.increaseBtn ? 1 : -1;
@@ -21,3 +21,5 @@ export const  CounterButton = (props: Props) => {
     </button>
   );
 }
+
+export default CounterButton;

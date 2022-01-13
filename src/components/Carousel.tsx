@@ -7,7 +7,7 @@ type Props = {
   images: Array<any>,
 }
 
-const Gallery: React.FC<Props> = (props) => {
+const Carousel: React.FC<Props> = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const updateIndex = (value: number) => {
     let newIndex = value;
@@ -54,4 +54,4 @@ const Gallery: React.FC<Props> = (props) => {
   );
 }
 
-export default Gallery;
+export default Carousel;
